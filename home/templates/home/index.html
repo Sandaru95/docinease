@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home | Doc In Ease - Smart Documenting AI For Converting Handwritten Documents to Actual PDFs</title>
+    {% load static %}
+
+    <!-- == Google Fonts -->
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- == CSS -->
+    <!-- Material CSS -->
+    <link rel="stylesheet" href="{% static 'home/materialize/css/materialize.min.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
+    <!-- Custom Elements -->
+    <style>
+        s_underline{
+            text-decoration: underline;
+        }
+        s_strike{
+            text-decoration: line-through;
+        }
+        s_indent{
+            display: inline-block;
+            text-indent: 10px !important;
+        }
+        s_italic{
+            font-style: italic;
+        }
+        s_align_left{
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+        }
+        s_align_center{
+            display: block !important;
+            width: 100% !important;
+            text-align: center !important;
+        }
+        s_align_right{
+            display: block !important;
+            width: 100% !important;
+            text-align: right !important;
+        }
+        s_list_un::before{
+            content: "⚫";
+        }
+    </style>
+</head>
+<body onload="beforeLoadShowPreloader();">
+    <div id="sanda-preloader">
+        <img src="{% static 'home/img/document_gif_preloader.gif' %}">
+        <p>Loading Doc In Ease. Please wait...</p>
+        <div class="progress blue lighten-3">
+            <div class="indeterminate blue darken-2"></div>
+        </div>  
+    </div>
+    <!-- Main Wrapper -->
+    <div class="row" id="main-wrapper">
+        <!-- ============================================================================== -->
+        <!-- Navs -->
+        <!-- ================================= -->
+        <!-- Navigation Bar At top -->
+        <nav class="blue white-text" id="nav-bar">
+            <div class="nav-wrapper">
+                <!-- More Button -->
+                <ul class="left">
+                    <li><a href="#!" data-target="slide-out" onclick="openSideNav()"><i class="material-icons">more_vert</i></a></li>
+                </ul>
+                <!-- Brand Logo -->
+                <a href="{% url 'home:index' %}" class="brand-logo"><i class="material-icons">local_printshop</i>DocInEase</a>
+                <!-- Other Similar Not Important Buttons -->
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#"><i class="material-icons" onclick="openSearchBox()">search</i></a></li>
+                    <li><a href="#"><i class="material-icons" onclick="refreshThePageOrItsItems()">refresh</i></a></li>
+                    <li><a href="{% url 'help:index' %}"><i class="material-icons">help_outline</i></a></li>
+                </ul>
+            </div>
+        </nav> <!-- ./ Navigation -->
+
+        <!-- Search Nav Bar -->
+        <nav class="blue" id="search-nav-bar" style="display: none;">
+            <div class="nav-wrapper">
+                <form>
+                    <div class="input-field">
+                        <input id="search" type="search" required oninput="searchingSubmission()">
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons" onclick="closeSearchNavBar()">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <!-- ================================= -->
+        <!-- Side Nav -->
+        <ul id="slide-out" class="sidenav">
+            <li><a class="waves-effect" href="{% url 'home:index' %}"><i class="material-icons">local_printshop</i>Home</a></li>
+            <li><a class="waves-effect" href="{% url 'help:index' %}"><i class="material-icons">help_outline</i>Help</a></li>
+            <li><a class="subheader">DocInEase 2020.02 Update</a></li>
+            <li><a class="waves-effect" href="{% url 'about:index' %}"><i class="material-icons">verified_user</i>About</a></li>
+        </ul><!-- ./ Slide Nav -->
+        <a href="#" data-target="slide-out" class="sidenav-trigger" style="display: none;"><i class="material-icons">menu</i></a>
+        <!-- ============================================================================== -->
+        <!-- Upload A New Handwritten -->
+        <section class="row center-align" id="hw_upload_section">
+            <h6 id="hw_upload_h6">Upload to Convert</h6>
+            <!-- Thumbnail Holder for uploading img -->
+            <img src="" id="hw_upload_thumbnail" class="responsive-img">
+            <br>
+            <button id="hw_upload_clown_btn" class="btn blue btn-floating btn-large waves-effect waves-light" onclick="clickOnHwFileInput()"><i class="material-icons">cloud_upload</i></button>
+            <button id="hw_editor_open_btn" class="btn blue btn-floating btn-large waves-effect waves-light" onclick="hwFileUploadOpenWithEditor()"><i class="material-icons">chrome_reader_mode</i></button>
+            <!-- Hand Written File Hidden Input -->
+            <form method="POST" enctype="multipart/form-data" id="hw_upload_form">
+                {% csrf_token %}
+                <input type="file" style="display: none;" name="hw_upload_input" id="hw_upload_input">    
+            </form>
+        </section>
+        <br>
+        <br>
+        <!-- Upload A New Handwritten Preloader -->
+        <section class="row center-align" id="hw_upload_preloader_section" style="display: none;">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Opening the editor with generated text...</p>
+        </section>
+        <br>
+        <!-- Saved Starts -->
+        <div class="row center-align">
+            <h5>Saved Documents</h5>
+        </div>
+        <section class="row center-align" id="saved-documents-section">
+            <!-- =============================== -->
+            <!-- ICON LIST -->
+            <!-- =============================== -->
+        </section>
+    </div>
+    <!-- csrf token for later use -->
+    {% csrf_token %}
+    <!-- Later Use -->
+    <script>
+        let hwUploadSectionTemplate = `
+            <h6 id="hw_upload_h6">Upload to Convert</h6>
+            <!-- Thumbnail Holder for uploading img -->
+            <img src="" id="hw_upload_thumbnail" class="responsive-img">
+            <br>
+            <button id="hw_upload_clown_btn" class="btn blue btn-floating btn-large waves-effect waves-light" onclick="clickOnHwFileInput()"><i class="material-icons">cloud_upload</i></button>
+            <button id="hw_editor_open_btn" class="btn blue btn-floating btn-large waves-effect waves-light" onclick="hwFileUploadOpenWithEditor()"><i class="material-icons">chrome_reader_mode</i></button>
+            <!-- Hand Written File Hidden Input -->
+            <form method="POST" enctype="multipart/form-data" id="hw_upload_form">
+                {% csrf_token %}
+                <input type="file" style="display: none;" name="hw_upload_input" id="hw_upload_input">    
+            </form>
+        `;
+    </script>
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <!-- Material JS -->
+    <script src="{% static 'home/materialize/js/materialize.min.js' %}"></script>
+    <!-- Material Init -->
+    <script src="{% static 'home/materialize/js/inits.js' %}"></script>
+    <!-- Jquery -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <!-- Draggable Custom JS -->
+    <script src="{% static 'home/js/draggable_editor.js' %}"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'home/js/main.js' %}"></script>
+</body>
+</html>

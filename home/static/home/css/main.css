@@ -1,0 +1,127 @@
+/* Universal */
+*:focus{
+    outline: none !important;
+}
+
+/* Globals */
+.material-icons{
+    display: inline-flex;
+    vertical-align: top;
+}
+
+/* Preloader Custom Styles */
+#sanda-preloader{
+    display: none;
+    width: 50%;
+    margin-top: 40px !important;
+    margin: auto;
+    text-align: center !important;
+}
+#sanda-preloader p{
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+/* Main Wrapper: Wrapper for all the contents */
+#main-wrapper{
+    display: none;
+}
+
+/* ================= HW Input uploads section */
+/* Thumbnail Img */
+#hw_upload_thumbnail{
+    margin-top: 20px !important;
+    width: 10% !important;
+    display: none;
+    margin: auto;
+}
+#hw_editor_open_btn{
+    display: none;
+}
+
+/* ======================= ITEM LIST */
+.pdf-hw-item:hover{
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================= HW Editor */
+#hw_editor{
+    position: absolute !important;
+    top: 10% !important;
+    left: 10%;
+    margin: auto;
+    width: 80%;
+    height: 85%;
+    z-index: 10000;
+}
+/* ******************************* Top Window */
+#hw_editor #hw_editor_top{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    margin: auto;
+}
+#hw_editor #hw_editor_top p{
+    width: 30%;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+}
+/* Opened Window Close Btn */
+#hw_editor #hw_editor_top button{
+    border: 0;
+    display: inline-block;
+    transition: 150ms all ease-in-out;
+}
+/* ******************************* Bottom Window */
+#hw_editor #hw_editor_content{
+    clear: both;
+    margin: auto;
+    text-align: center;
+}
+/* The Editor */
+#hw_editor #hw_editor_content_editor{
+    max-height: 400px !important;
+    overflow: auto;
+    padding: 5px;
+}
+/* Bottom Button set */
+#hw_editor #hw_editor_btns{
+    bottom: 10px !important;
+    position: absolute;
+    width: 100% !important;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/* General Button */
+#hw_editor #hw_editor_btns .hw_editor_option_btn{
+    float: left !important;
+}
+/* Font size Input */
+#hw_editor #hw_editor_btns #font-size-input{
+    float: left !important;
+    width: 15% !important;
+    padding: 0;
+}
+/* Save Button */
+#hw_editor #hw_editor_save_btn{
+    float: right !important;
+}

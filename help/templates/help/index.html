@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Help | Doc In Ease </title>
+    {% load static %}
+
+    <!-- == Google Fonts -->
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- == CSS -->
+    <!-- Material CSS -->
+    <link rel="stylesheet" href="{% static 'help/materialize/css/materialize.min.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'help/css/main.css' %}">
+</head>
+<body>
+    <!-- Main Wrapper -->
+    <div class="row" id="main-wrapper">
+        <!-- ============================================================================== -->
+        <!-- Navs -->
+        <!-- ================================= -->
+        <!-- Navigation Bar At top -->
+        <nav class="blue white-text">
+            <div class="nav-wrapper">
+                <!-- More Button -->
+                <ul class="left">
+                    <li><a href="#" data-target="slide-out" onclick="openSideNav()"><i class="material-icons">more_vert</i></a></li>
+                </ul>
+                <!-- Brand Logo -->
+                <a href="{% url 'home:index' %}" class="brand-logo"><i class="material-icons">local_printshop</i>DocInEase</a>
+                <!-- Other Similar Not Important Buttons -->
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#" onclick="refreshThePageOrItsItems()"><i class="material-icons">refresh</i></a></li>
+                    <li><a href="#"><i class="material-icons">help_outline</i></a></li>
+                </ul>
+            </div>
+        </nav><!-- ./ Navigation -->
+        <!-- ================================= -->
+        <!-- Side Nav -->
+        <ul id="slide-out" class="sidenav">
+            <li><a class="waves-effect" href="{% url 'home:index' %}"><i class="material-icons">local_printshop</i>Home</a></li>
+            <li><a class="waves-effect" href="{% url 'help:index' %}"><i class="material-icons">help_outline</i>Help</a></li>
+            <li><a class="subheader">DocInEase 2020.02 Update</a></li>
+            <li><a class="waves-effect" href="{% url 'about:index' %}"><i class="material-icons">verified_user</i>About</a></li>
+        </ul><!-- ./ Slide Nav -->
+        <a href="#" data-target="slide-out" class="sidenav-trigger" style="display: none;"><i class="material-icons">menu</i></a>
+        <!-- ============================================================================== -->
+        <div class="container">
+            <!-- Introduction -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Introduction to our tool</span>
+                    <p>What we are trying to achieve is to give the user the full potential to use OCR (Optical Character Recognition) technology as they wanted. With OCR the user will be able to convert their handwritten documents into typed pdf files. So we are continuously working to improve the product</p>
+                </div>
+            </div>
+            <!-- How to convert -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">How To Convert Handwritten Text To PDF files?</span>
+                    <p>Just tap on the upload button and select the handwritten document image. After doing that tap on the proceeding button. Then in a few seconds, your document will be converted into a PDF file.</p>
+                </div>
+            </div>
+            <!-- Tool Manipulation -->
+            <!-- How to convert -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Manipulation of Saved PDF files</span>
+                    <p>So after uploading the handwritten document and saving it as a PDF, You'll have the options to view info, print and download the generated PDF file. </p>
+                </div>
+            </div>
+            <!-- How to Print -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">How to Print Generated PDF file</span>
+                    <p>All you have to do is tap on the print button of the relavant PDF file and the hit the (Ctrl + P)</p>
+                </div>
+            </div>
+            <!-- How to Download -->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">How to Print Generated PDF file</span>
+                    <p>All you have to do is to tap on the download button of the relavant PDF file</p>
+                </div>
+            </div>
+        </div>
+    </div><!-- ./Main Wrapper -->
+
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <!-- Material JS -->
+    <script src="{% static 'help/materialize/js/materialize.min.js' %}"></script>
+    <!-- Material Init -->
+    <script src="{% static 'help/materialize/js/inits.js' %}"></script>
+    <!-- Jquery -->
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'help/js/main.js' %}"></script>
+</body>
+</html>

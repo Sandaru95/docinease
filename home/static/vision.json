@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "vision-api-for-tutbag",
+  "private_key_id": "3e2dab3fccdf5c41ae164ece943e13b8dfe8ba66",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDUs8H/NHxJNCL2\nPSDILUppUPi95VNphK3BeDzV7Q1RMrjllIba70orF60QsViVulFhgC6G8p/GYk9k\nbJPHOTMvyVoTbDkvgvpKrREXC05HO20n2WN6JTyS26iBYSUm6PLTug9o0mS1pBXE\nrQH8/Xdcw8MLTjN8xzZOwN7ONtIoVv1eH9O5cD7ARDnwNS8zTq0bfJxPEaess1q9\nL9BTzzl0cR9WndG3R46tMBBdu28iZ6kTvPeauqu/uYeeTl6xs88m7muHBj3SDIt9\njUnUD0pzcxthXEDZJFzkF8sy706L1i33Nj6CW79zDFsDaY155TM9wWA27FgKopMG\nai6oNTyxAgMBAAECggEAPYGJfImp0uU/ouLEQv5NwSyH8SmKOD4EnKhvNxEoQ62e\nJ80OPerqEJH1Gpmd2xYYiFAvpBguuYgeGxUGmppgwdXAtVMbKjD+vW9UPMypIxH9\nG4PSLzTrUjAwhtEXlCvSZAUuhYopUxkSrl+07npA9NMq6G8BlnhorNc61nilxsHx\nmwYBdHxwOuXcIwOZE0N91EfPkKHzdAyFnA0e9d6HFWgOeBjNufIswIblGzfKEHWE\nOlmNNQETDFdeyMJvM5kyUTwV6meP2i3RhT8T/OqJt1b6wmDxdS7JZv4rNqZbEace\nkf2O0bjKmfwOP3YbVhSCPDOYTSSGXyOGqtpixUEprQKBgQD5bkEd8r1Z6/lRT6fJ\n6XGjOX+B9JFoD01Vt18gbTKxZ8MF98LGYHOLK3TcbokKlRmutF8xfGDVSsZ8KPLf\nl8T5MCeUKl0vYws1J8yb44hl3jXsP7ca7R2vBwN2MC8CBUPV0SLQDMeQ87wi1XjC\nlucdZyyjydZ87nyIxysHMhE0awKBgQDaTd4VC42dOsRdBK5a8V/9LKDNIgBZQQcP\nL9gFpy6uR4/UBAVJrzPHmbondueldQIornml4TUiZWiwVAPywsVFbjM7SpfQ5+JJ\nA8LnuqXYjGwLOI9AxnShcFCJaao3XweYZM7Io26Yt8UlZUe8cYzP5R5TuaCDkNYq\nsHzoHIM6UwKBgFnY3D3kbU6R0Ln4XnE91MA9+u8d4K7CLFI+/lYY35TF0ps4twFs\nRtKPscWhT13vfVPQByY1LlBGYh7hRTNDYSF9thQJ+o0SOTxJfMt+d2hyVawm+1cI\nqJOejCGrk5M/wEKp1cdpgw10roVBrgEyCEgwHQVWtBtGcLd4PsiVwVrHAoGBAJ4n\n+9VTYW2fvdOGKKtKZDiPtI/pKkd/jRW7m828qV0qC1GW+B3CCMl63hrpUjnU45OF\nlCxRVKVuwsG8nH+sDC+Y/xTdnc+Dr7UmPHaWCsEwOraGa4KKRMUREcf7/Y3QEzid\nEBLcFKwft3y4O5iSy2lynN4bhebLb93NrzCaN5hxAoGBAO5lYW5XQMEWWwwXTz1I\nFHk9sL63sAv7vIiF2PnZ8knqVPRPYJR6Nzl7Ep3m1VCdGqF2AySPDd7YCRhtlXDj\ndIs6zI4TdSC9wrJTHBfvOOZHT8AWZ6a9X3TmKDgxBENgDHfp8S97B8jJKGyrWgbT\nIgV531ZEnaS7gdzHsg73AHCV\n-----END PRIVATE KEY-----\n",
+  "client_email": "sandakolla@vision-api-for-tutbag.iam.gserviceaccount.com",
+  "client_id": "103561787300455986955",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/sandakolla%40vision-api-for-tutbag.iam.gserviceaccount.com"
+}
