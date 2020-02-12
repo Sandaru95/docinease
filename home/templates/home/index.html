@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{% static 'home/materialize/css/materialize.min.css' %}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'home/css/main.css' %}">
-    <!-- Custom Elements -->
+    <!-- Custom Elements For HW Inline Editor -->
     <style>
         s_underline{
             text-decoration: underline;
@@ -51,38 +51,41 @@
         }
     </style>
 </head>
-<body onload="beforeLoadShowPreloader();">
-    <div id="sanda-preloader">
+<body onload="onLoadShowPreloader();">
+    <!-- ======================================================================================== -->
+    <!-- On Load The Preloader We Gonna Show ^^ -->
+    <div id="onload-preloader">
         <img src="{% static 'home/img/document_gif_preloader.gif' %}">
         <p>Loading Doc In Ease. Please wait...</p>
         <div class="progress blue lighten-3">
             <div class="indeterminate blue darken-2"></div>
-        </div>  
+        </div>
     </div>
+    <!-- ======================================================================================== -->
     <!-- Main Wrapper -->
     <div class="row" id="main-wrapper">
-        <!-- ============================================================================== -->
+        <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         <!-- Navs -->
         <!-- ================================= -->
-        <!-- Navigation Bar At top -->
+        <!-- Top Nav Bar -->
         <nav class="blue white-text" id="nav-bar">
             <div class="nav-wrapper">
-                <!-- More Button -->
+                <!-- More Button: Expands -->
                 <ul class="left">
                     <li><a href="#!" data-target="slide-out" onclick="openSideNav()"><i class="material-icons">more_vert</i></a></li>
                 </ul>
-                <!-- Brand Logo -->
+                <!-- Brand Logo: Branding -->
                 <a href="{% url 'home:index' %}" class="brand-logo"><i class="material-icons">local_printshop</i>DocInEase</a>
-                <!-- Other Similar Not Important Buttons -->
+                <!-- ETCs Buttons -->
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#"><i class="material-icons" onclick="openSearchBox()">search</i></a></li>
                     <li><a href="#"><i class="material-icons" onclick="refreshThePageOrItsItems()">refresh</i></a></li>
                     <li><a href="{% url 'help:index' %}"><i class="material-icons">help_outline</i></a></li>
                 </ul>
             </div>
-        </nav> <!-- ./ Navigation -->
-
-        <!-- Search Nav Bar -->
+        </nav> <!-- ./ Top Navigation -->
+        <!-- ================================= -->
+        <!-- Search Nav Bar: Hidden -->
         <nav class="blue" id="search-nav-bar" style="display: none;">
             <div class="nav-wrapper">
                 <form>
@@ -95,27 +98,29 @@
             </div>
         </nav>
         <!-- ================================= -->
-        <!-- Side Nav -->
+        <!-- Side Nav: On Click For More Button -->
         <ul id="slide-out" class="sidenav">
             <li><a class="waves-effect" href="{% url 'home:index' %}"><i class="material-icons">local_printshop</i>Home</a></li>
             <li><a class="waves-effect" href="{% url 'help:index' %}"><i class="material-icons">help_outline</i>Help</a></li>
             <li><a class="subheader">DocInEase 2020.02 Update</a></li>
             <li><a class="waves-effect" href="{% url 'about:index' %}"><i class="material-icons">verified_user</i>About</a></li>
-        </ul><!-- ./ Slide Nav -->
+        </ul><!-- ./ Side Nav -->
         <a href="#" data-target="slide-out" class="sidenav-trigger" style="display: none;"><i class="material-icons">menu</i></a>
         <!-- ============================================================================== -->
         <!-- Upload A New Handwritten -->
         <section class="row center-align" id="hw_upload_section">
+            <!-- Heading -->
             <h6 id="hw_upload_h6">Upload to Convert</h6>
             <!-- Thumbnail Holder for uploading img -->
             <img src="" id="hw_upload_thumbnail" class="responsive-img">
             <br>
+            <!-- Image Select Button and Image Open With Editor Button -->
             <button id="hw_upload_clown_btn" class="btn blue btn-floating btn-large waves-effect waves-light" onclick="clickOnHwFileInput()"><i class="material-icons">cloud_upload</i></button>
-            <button id="hw_editor_open_btn" class="btn blue btn-floating btn-large waves-effect waves-light" onclick="hwFileUploadOpenWithEditor()"><i class="material-icons">chrome_reader_mode</i></button>
+            <button id="hw_editor_open_btn" class="btn blue btn-floating btn-large waves-effect waves-light" onclick="hwFileUploadOpenWithEditor(true)"><i class="material-icons">chrome_reader_mode</i></button>
             <!-- Hand Written File Hidden Input -->
             <form method="POST" enctype="multipart/form-data" id="hw_upload_form">
                 {% csrf_token %}
-                <input type="file" style="display: none;" name="hw_upload_input" id="hw_upload_input">    
+                <input type="file" style="display: none;" name="hw_upload_input" id="hw_upload_input">
             </form>
         </section>
         <br>
@@ -137,6 +142,7 @@
             <p>Opening the editor with generated text...</p>
         </section>
         <br>
+        <!-- ======================================================================== -->
         <!-- Saved Starts -->
         <div class="row center-align">
             <h5>Saved Documents</h5>
@@ -157,11 +163,11 @@
             <img src="" id="hw_upload_thumbnail" class="responsive-img">
             <br>
             <button id="hw_upload_clown_btn" class="btn blue btn-floating btn-large waves-effect waves-light" onclick="clickOnHwFileInput()"><i class="material-icons">cloud_upload</i></button>
-            <button id="hw_editor_open_btn" class="btn blue btn-floating btn-large waves-effect waves-light" onclick="hwFileUploadOpenWithEditor()"><i class="material-icons">chrome_reader_mode</i></button>
+            <button id="hw_editor_open_btn" class="btn blue btn-floating btn-large waves-effect waves-light" onclick="hwFileUploadOpenWithEditor(true)"><i class="material-icons">chrome_reader_mode</i></button>
             <!-- Hand Written File Hidden Input -->
             <form method="POST" enctype="multipart/form-data" id="hw_upload_form">
                 {% csrf_token %}
-                <input type="file" style="display: none;" name="hw_upload_input" id="hw_upload_input">    
+                <input type="file" style="display: none;" name="hw_upload_input" id="hw_upload_input">
             </form>
         `;
     </script>
@@ -169,16 +175,18 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!-- Material JS -->
     <script src="{% static 'home/materialize/js/materialize.min.js' %}"></script>
-    <!-- Material Init -->
-    <script src="{% static 'home/materialize/js/inits.js' %}"></script>
     <!-- Jquery -->
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
-    <!-- Draggable Custom JS -->
-    <script src="{% static 'home/js/draggable_editor.js' %}"></script>
-    <!-- Custom JS -->
-    <script src="{% static 'home/js/main.js' %}"></script>
+    <!-- Material Init -->
+    <script src="{% static 'home/materialize/js/inits.js' %}"></script>
+    <!-- @@@@@@@@@@@@@@@ Custom JS -->
+    <script src="{% static 'home/js/1_on_load_content.js' %}"></script>
+    <script src="{% static 'home/js/2_general.js' %}"></script>
+    <script src="{% static 'home/js/3_navs.js' %}"></script>
+    <script src="{% static 'home/js/4_hw_upload.js' %}"></script>
+    <script src="{% static 'home/js/5_hw_editor.js' %}"></script>
 </body>
 </html>
